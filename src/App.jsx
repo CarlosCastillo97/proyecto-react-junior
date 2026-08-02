@@ -22,14 +22,17 @@ function App() {
 
       <main className="app-grid">
         <section className="bloque">
+          <h2>Contador</h2>
           <Contador />
         </section>
 
         <section className="bloque">
+          <h2>Lista de Tareas</h2>
           <ListaTareas />
         </section>
 
         <section className="bloque bloque-completo">
+          <h2>Buscador de Anime</h2>
           <BuscadorAnime />
         </section>
       </main>

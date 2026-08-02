@@ -4,10 +4,12 @@ function Contador() {
     const [numero, setNumero] = useState(0);
 
     return (
-        <div>
-            <h2>Contador: {numero}</h2>
-            <button onClick={() => setNumero(numero + 1)}>Sumar</button>
-            <button onClick={() => setNumero(numero - 1)}>Restar</button>
+        <div className="contenido-centro">
+            <p className="contador-numero">{numero}</p>
+            <div className="fila-botones">
+                <button onClick={() => setNumero(numero + 1)}>Sumar</button>
+                <button onClick={() => setNumero(numero - 1)}>Restar</button>
+            </div>
         </div>
     );
 }

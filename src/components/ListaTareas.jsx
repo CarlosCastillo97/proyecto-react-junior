@@ -17,7 +17,6 @@ function ListaTareas() {
 
     return (
         <div>
-            <h2>Lista de Tareas</h2>
             <input 
             type="text"
             value={tarea}

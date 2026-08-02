@@ -41,7 +41,6 @@ function BuscadorAnime() {
 
   return (
     <div>
-      <h2>Buscador de Anime</h2>
 
       <input
         type="text"
