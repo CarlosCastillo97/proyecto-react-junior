@@ -1,54 +1,70 @@
 # \# Mi Proyecto React
 
-# 
 
-# Aplicación creada con React y Vite como práctica de componentes, estado y consumo de API.
 
-# 
+Aplicación desarrollada con React y Vite como práctica de componentes, manejo de estado y renderizado dinámico.
 
-# \## Tecnologías
 
-# \- React
 
-# \- Vite
+## \## Demo en vivo
 
-# \- JavaScript
+https://proyecto-react-junior.vercel.app/
 
-# \- CSS
 
-# \- Vercel
 
-# 
+## \## Repositorio
 
-# \## Funcionalidades
+https://github.com/CarlosCastillo97/proyecto-react-junior
 
-# \- Contador con useState
 
-# \- Lista de tareas
 
-# \- Buscador de anime
+##### \## Tecnologías usadas
 
-# 
+\- React
 
-# \## Demo
+\- Vite
 
-# https://proyecto-react-junior.vercel.app/
+\- JavaScript
 
-# 
+\- CSS
 
-# \## Instalación
+\- Git y GitHub
 
-# ```bash
+\- Vercel
 
-# npm install
 
-# npm run dev
 
-# ```
+##### \## Funcionalidades
 
-# 
+\- Contador con useState
 
-# \## Objetivo
+\- Lista de tareas
 
-# Practicar React básico, manejo de estado, renderizado dinámico y despliegue en Vercel.
+\- Buscador de anime con consumo de API
+
+\- Manejo básico de errores en peticiones
+
+
+
+##### \## Instalación local
+
+```bash
+
+npm install
+
+npm run dev
+
+```
+
+
+
+##### \## Objetivo del proyecto
+
+Practicar React desde cero, manejo de componentes, hooks básicos y despliegue de una aplicación real.
+
+
+
+##### \## Estado del proyecto
+
+Versión inicial funcional.
 
