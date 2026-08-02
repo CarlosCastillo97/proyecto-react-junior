@@ -1,31 +1,38 @@
-import {useState} from "react";
+import { useEffect, useState } from "react";
 import Contador from "./components/Contador";
 import ListaTareas from "./components/ListaTareas";
 import BuscadorAnime from "./components/BuscadorAnime";
 import "./index.css";
 
 function App() {
-const [temaClaro, setTemaClaro] = useState(false);
+  const [temaClaro, setTemaClaro] = useState(false);
+
+  useEffect(() => {
+    document.body.className = temaClaro ? "tema-claro" : "";
+  }, [temaClaro]);
 
   return (
-    <div className={temaClaro ? "tema-claro" : ""}>
-      <button onClick={() => setTemaClaro(!temaClaro)}>
-        Cambiar tema
-      </button>
-      
-      <h1>Mi Proyecto React</h1>
+    <div className="app">
+      <header className="app-header">
+        <h1>Mi Proyecto React</h1>
+        <button onClick={() => setTemaClaro(!temaClaro)}>
+          Cambiar tema
+        </button>
+      </header>
 
-      <div className="bloque">
-        <Contador />
-      </div>
+      <main className="app-grid">
+        <section className="bloque">
+          <Contador />
+        </section>
 
-      <div className="bloque">
-        <ListaTareas />
-      </div>
+        <section className="bloque">
+          <ListaTareas />
+        </section>
 
-      <div className="bloque">
-        <BuscadorAnime />
-      </div>
+        <section className="bloque bloque-completo">
+          <BuscadorAnime />
+        </section>
+      </main>
     </div>
   );
 }
