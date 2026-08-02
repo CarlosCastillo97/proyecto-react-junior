@@ -1,40 +1,28 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function BuscadorAnime() {
-  const [busqueda, setBusqueda] = useState("");
+  const [textoInput, setTextoInput] = useState("naruto");
+  const [busqueda, setBusqueda] = useState("naruto");
   const [animes, setAnimes] = useState([]);
-  const [cargando, setCargando] = useState(false);
-  const [error, setError] = useState("");
+  const [cargando, setCargando] = useState(true);
 
-  const buscarAnime = async () => {
-    const texto = busqueda.trim();
-
-    if (texto === "") {
-      setAnimes([]);
-      setError("Escribe un anime para buscar.");
-      return;
-    }
-
-    try {
+  useEffect(() => {
+    const obtenerAnimes = async () => {
       setCargando(true);
-      setError("");
-
       const respuesta = await fetch(
-        `https://api.jikan.moe/v4/anime?q=${encodeURIComponent(texto)}&limit=8`
+        `https://api.jikan.moe/v4/anime?q=${busqueda}`
       );
-
-      if (!respuesta.ok) {
-        throw new Error("Error al consultar la API");
-      }
-
       const datos = await respuesta.json();
-      setAnimes(datos.data || []);
-    } catch (error) {
-      setError("La API no respondió bien. Intenta con otra búsqueda en unos segundos.");
-      setAnimes([]);
-    } finally {
+      setAnimes(datos.data);
       setCargando(false);
-    }
+    };
+
+    obtenerAnimes();
+  }, [busqueda]);
+
+  const manejarBusqueda = () => {
+    if (textoInput.trim() === "") return;
+    setBusqueda(textoInput);
   };
 
   return (
@@ -43,24 +31,23 @@ function BuscadorAnime() {
 
       <input
         type="text"
-        value={busqueda}
-        onChange={(e) => setBusqueda(e.target.value)}
+        value={textoInput}
+        onChange={(e) => setTextoInput(e.target.value)}
         placeholder="Buscar anime..."
       />
 
-      <button onClick={buscarAnime}>Buscar</button>
+      <button onClick={manejarBusqueda}>Buscar</button>
 
-      {cargando && <p>Cargando...</p>}
-      {error && <p>{error}</p>}
-
-      {!cargando && !error && animes.length > 0 && (
+      {cargando ? (
+        <p>Cargando...</p>
+      ) : (
         <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem" }}>
-          {animes.map((anime) => (
+          {animes.slice(0, 8).map((anime) => (
             <div key={anime.mal_id} style={{ width: "150px" }}>
               <img
                 src={anime.images.jpg.image_url}
                 alt={anime.title}
-                width="150"
+                width="100%"
               />
               <p>{anime.title}</p>
             </div>
