@@ -17,17 +17,23 @@ function ListaTareas() {
 
     return (
         <div>
-            <input 
-            type="text"
-            value={tarea}
-            onChange={(e) => setTarea(e.target.value)}
-            placeholder="Nueva tarea"
-            />
-            <button onClick={agregarTarea}>Agregar</button>
-            <ul>
+            <div className="fila-formulario">
+                <input 
+                type="text"
+                value={tarea}
+                onChange={(e) => setTarea(e.target.value)}
+                placeholder="Nueva tarea"
+                />
+                <button onClick={agregarTarea}>Agregar</button>
+            </div>
+
+            <ul className="lista-react">
                 {tareas.map((t, index) => (
-                    <li key={index}>
-                        {t} <button onClick={() => eliminarTarea(index)}>Eliminar</button>
+                    <li key={index} className="item-react">
+                        <span>{t}</span>
+                        <button onClick={() =>
+                            eliminarTarea(index)}>Eliminar
+                        </button> 
                     </li>
                 ))}
             </ul>
