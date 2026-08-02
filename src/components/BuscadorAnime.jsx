@@ -5,16 +5,30 @@ function BuscadorAnime() {
   const [busqueda, setBusqueda] = useState("naruto");
   const [animes, setAnimes] = useState([]);
   const [cargando, setCargando] = useState(true);
+  const [error, setError] = useState("");
 
   useEffect(() => {
     const obtenerAnimes = async () => {
-      setCargando(true);
-      const respuesta = await fetch(
-        `https://api.jikan.moe/v4/anime?q=${busqueda}`
-      );
-      const datos = await respuesta.json();
-      setAnimes(datos.data);
-      setCargando(false);
+      try {
+        setCargando(true);
+        setError("");
+
+        const respuesta = await fetch(
+          `https://api.jikan.moe/v4/anime?q=${busqueda}`
+        );
+
+        if (!respuesta.ok) {
+          throw new Error("La API falló");
+        }
+
+        const datos = await respuesta.json();
+        setAnimes(datos.data || []);
+      } catch (error) {
+        setError("No se pudo cargar esa búsqueda. Prueba con otra.");
+        setAnimes([]);
+      } finally {
+        setCargando(false);
+      }
     };
 
     obtenerAnimes();
@@ -38,9 +52,10 @@ function BuscadorAnime() {
 
       <button onClick={manejarBusqueda}>Buscar</button>
 
-      {cargando ? (
-        <p>Cargando...</p>
-      ) : (
+      {cargando && <p>Cargando...</p>}
+      {error && <p>{error}</p>}
+
+      {!cargando && !error && (
         <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem" }}>
           {animes.slice(0, 8).map((anime) => (
             <div key={anime.mal_id} style={{ width: "150px" }}>
