@@ -1,16 +1,54 @@
-# React + Vite
+# \# Mi Proyecto React
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+# 
 
-Currently, two official plugins are available:
+# Aplicación creada con React y Vite como práctica de componentes, estado y consumo de API.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+# 
 
-## React Compiler
+# \## Tecnologías
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+# \- React
 
-## Expanding the Oxlint configuration
+# \- Vite
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+# \- JavaScript
+
+# \- CSS
+
+# \- Vercel
+
+# 
+
+# \## Funcionalidades
+
+# \- Contador con useState
+
+# \- Lista de tareas
+
+# \- Buscador de anime
+
+# 
+
+# \## Demo
+
+# https://proyecto-react-junior.vercel.app/
+
+# 
+
+# \## Instalación
+
+# ```bash
+
+# npm install
+
+# npm run dev
+
+# ```
+
+# 
+
+# \## Objetivo
+
+# Practicar React básico, manejo de estado, renderizado dinámico y despliegue en Vercel.
+
